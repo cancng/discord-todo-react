@@ -1,26 +1,26 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import { BrowserRouter as Router, Route } from 'react-router-dom';
+import Header from './components/Header';
+import LandingPage from './pages/LandingPage';
+import Footer from './components/Footer';
+import Login from './pages/Login';
+import Profile from './pages/Profile';
+import Todos from './pages/Todos';
+import { useAuth } from './useAuth';
 
-function App() {
+const App = () => {
+  useAuth();
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Router>
+      <Header />
+      <Route path='/' component={LandingPage} exact />
+      <Route path='/login' component={Login} />
+      <Route path='/profile' component={Profile} />
+      <Route path='/todos' component={Todos} exact />
+      <Route path='/todos/:pageNumber' component={Todos} />
+      <Footer />
+    </Router>
   );
-}
+};
 
 export default App;
