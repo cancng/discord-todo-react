@@ -8,13 +8,23 @@ import {
   markTodoReducer,
   userTodoReducer,
 } from './reducers/todoReducer';
+import {
+  addNoteReducer,
+  deleteNoteReducer,
+  userNoteReducer,
+  userNotesReducer,
+} from './reducers/noteReducer';
 
 const reducers = combineReducers({
   userLogin: userAuthReducer,
-  addTodo: addTodoReducer,
   userTodos: userTodoReducer,
+  addTodo: addTodoReducer,
   deleteTodo: deleteTodoReducer,
   markTodo: markTodoReducer,
+  userNotes: userNotesReducer,
+  userNote: userNoteReducer,
+  addNote: addNoteReducer,
+  deleteNote: deleteNoteReducer,
 });
 
 const initialState = {};

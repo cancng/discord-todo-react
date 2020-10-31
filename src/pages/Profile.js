@@ -1,5 +1,4 @@
 import React from 'react';
-import { AiFillCloseCircle, AiFillCheckCircle } from 'react-icons/ai';
 import Loader from '../components/Loader';
 import Message from '../components/Message';
 import { useAuth } from '../useAuth';
@@ -29,9 +28,11 @@ const Profile = () => {
               <div className='col s12 m6'>
                 <ul className='collection with-header'>
                   <li className='collection-header'>
-                    <h4>Discord Account</h4>
+                    <h4>Your Account</h4>
                   </li>
-                  <li className='collection-item'>ID: {userInfo.discordId}</li>
+                  <li className='collection-item'>
+                    Discord ID: {userInfo.discordId}
+                  </li>
                   <li className='collection-item'>
                     Username: {userInfo.username}
                   </li>
@@ -39,9 +40,9 @@ const Profile = () => {
                   <li className='collection-item discord-status'>
                     Verified:{' '}
                     {userInfo.verified ? (
-                      <AiFillCheckCircle color='green' size={20} />
+                      <i className='material-icons green-text'>check_circle</i>
                     ) : (
-                      <AiFillCloseCircle color='red' size={20} />
+                      <i className='material-icons red-text'>cancel</i>
                     )}
                   </li>
                 </ul>

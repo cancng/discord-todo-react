@@ -2,7 +2,6 @@ import React, { useEffect, useRef } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { Link } from 'react-router-dom';
 import M from 'materialize-css/dist/js/materialize.min.js';
-import { GiHamburgerMenu } from 'react-icons/gi';
 import { logout } from '../store/actions/userActions';
 
 const Header = () => {
@@ -12,6 +11,7 @@ const Header = () => {
   const sideNavRef = useRef();
   const handleLogout = () => {
     dispatch(logout());
+    window.location.reload();
   };
   useEffect(() => {
     M.Sidenav.init(sideNavRef.current, {});
@@ -27,8 +27,7 @@ const Header = () => {
               </Link>
               {/* eslint-disable-next-line */}
               <a href='#' className='sidenav-trigger' data-target='mobile-nav'>
-                {/* <i className='material-icons'>menu</i> */}
-                <GiHamburgerMenu size={24} />
+                <i className='material-icons'>menu</i>
               </a>
               <ul className='right hide-on-med-and-down'>
                 <li>
@@ -38,6 +37,9 @@ const Header = () => {
                   <>
                     <li>
                       <Link to='/todos'>Todos</Link>
+                    </li>
+                    <li>
+                      <Link to='/notes'>My Notes</Link>
                     </li>
                     <li>
                       <Link to='/profile'>Profile</Link>
@@ -66,6 +68,9 @@ const Header = () => {
               <Link to='/todos'>Todos</Link>
             </li>
             <li>
+              <Link to='/notes'>My Notes</Link>
+            </li>
+            <li>
               <Link to='/profile'>Profile</Link>
             </li>
           </>
@@ -78,13 +83,6 @@ const Header = () => {
           )}
         </li>
       </ul>
-      <style jsx='true'>
-        {`
-          .sidenav-trigger {
-            padding-top: 8px;
-          }
-        `}
-      </style>
     </>
   );
 };

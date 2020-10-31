@@ -6,6 +6,9 @@ import Footer from './components/Footer';
 import Login from './pages/Login';
 import Profile from './pages/Profile';
 import Todos from './pages/Todos';
+import Notes from './pages/Notes';
+import Note from './pages/Note';
+
 import { useAuth } from './useAuth';
 
 const App = () => {
@@ -18,6 +21,8 @@ const App = () => {
       <Route path='/profile' component={Profile} />
       <Route path='/todos' component={Todos} exact />
       <Route path='/todos/:pageNumber' component={Todos} />
+      <Route path='/notes' component={Notes} />
+      <Route path='/note/:noteId' component={Note} />
       <Footer />
     </Router>
   );

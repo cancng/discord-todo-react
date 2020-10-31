@@ -1,5 +1,4 @@
 import React, { useEffect, useRef, useState } from 'react';
-import { FaTrash } from 'react-icons/fa';
 import { useDispatch, useSelector } from 'react-redux';
 import Loader from '../components/Loader';
 import Message from '../components/Message';
@@ -138,16 +137,13 @@ const Todos = () => {
                                   Created{' '}
                                   <Moment fromNow>{todo.createdAt}</Moment>
                                 </small>
-                                <span
-                                  className='right'
+                                <i
+                                  className='material-icons right blue-text'
                                   onClick={() => deleteHandler(todo._id)}
+                                  style={{ cursor: 'pointer' }}
                                 >
-                                  <FaTrash
-                                    size={18}
-                                    color='gray'
-                                    className='delete_icon'
-                                  />
-                                </span>
+                                  delete
+                                </i>
                               </li>
                             ))
                         : todoFilter === 'done'
@@ -177,16 +173,13 @@ const Todos = () => {
                                   Created{' '}
                                   <Moment fromNow>{todo.createdAt}</Moment>
                                 </small>
-                                <span
-                                  className='right'
+                                <i
+                                  className='material-icons right blue-text'
                                   onClick={() => deleteHandler(todo._id)}
+                                  style={{ cursor: 'pointer' }}
                                 >
-                                  <FaTrash
-                                    size={18}
-                                    color='gray'
-                                    className='delete_icon'
-                                  />
-                                </span>
+                                  delete
+                                </i>
                               </li>
                             ))
                         : todos.map((todo) => (
@@ -211,20 +204,18 @@ const Todos = () => {
                                 Created{' '}
                                 <Moment fromNow>{todo.createdAt}</Moment>
                               </small>
-                              <span
-                                className='right'
+                              <i
+                                className='material-icons right blue-text'
                                 onClick={() => deleteHandler(todo._id)}
+                                style={{ cursor: 'pointer' }}
                               >
-                                <FaTrash
-                                  size={18}
-                                  color='gray'
-                                  className='delete_icon'
-                                />
-                              </span>
+                                delete
+                              </i>
                             </li>
                           ))}
                     </ul>
                     <Pagination pages={pages} page={page} />
+                    <small>You can see 10 todo per page.</small>
                   </>
                 )}
               </div>
@@ -232,13 +223,6 @@ const Todos = () => {
           )}
         </div>
       </div>
-      <style jsx='true'>
-        {`
-          .delete_icon:hover {
-            cursor: pointer;
-          }
-        `}
-      </style>
     </div>
   );
 };

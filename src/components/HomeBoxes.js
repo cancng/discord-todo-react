@@ -1,6 +1,4 @@
 import React from 'react';
-import { FaCheckDouble, FaDiscord } from 'react-icons/fa';
-import { GrWorkshop } from 'react-icons/gr';
 
 const HomeBoxes = () => {
   return (
@@ -9,22 +7,23 @@ const HomeBoxes = () => {
         <div className='row'>
           <div className='col s12 m4'>
             <div className='card-panel'>
-              {/* <i className='material-icons large red-text darken-4'>3d_rotation</i> */}
-              <FaDiscord size={87} className='blue-text' />
+              <i className='material-icons large'>
+                how_to_reg
+              </i>
               <h4>Discord</h4>
               <p>Login easily using Discord OAuth Authentication</p>
             </div>
           </div>
           <div className='col s12 m4'>
             <div className='card-panel'>
-              <FaCheckDouble size={87} className='deep-purple-text' />
+              <i className='material-icons large'>done_all</i>
               <h4>List Todos</h4>
               <p>Add your todos and prepare yourself to work.</p>
             </div>
           </div>
           <div className='col s12 m4'>
             <div className='card-panel'>
-              <GrWorkshop size={87} />
+              <i className='material-icons large'>assignment</i>
               <h4>Works</h4>
               <p>Organize works, for your work life balance</p>
             </div>
