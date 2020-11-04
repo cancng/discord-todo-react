@@ -15,7 +15,7 @@ const Notes = () => {
   const { success, error: addNoteError } = addNote;
 
   const userNotes = useSelector((state) => state.userNotes);
-  const { error, loading, notes } = userNotes;
+  const { loading, notes } = userNotes;
 
   const deleteNotes = useSelector((state) => state.deleteNote);
   const { success: deleteSuccess } = deleteNotes;
@@ -28,7 +28,7 @@ const Notes = () => {
 
   useEffect(() => {
     dispatch(getNotes());
-  }, [success, deleteSuccess]);
+  }, [dispatch, success, deleteSuccess]);
   return (
     <div className='section'>
       <div className='container'>
